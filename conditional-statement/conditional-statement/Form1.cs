@@ -19,56 +19,66 @@ namespace conditional_statement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double score = 95;
-            char grade = 'F';
+            double score;
+            if (double.TryParse(textBox1.Text, out score))
+            {
+                char grade = 'F';
 
-            if(score >= 90)
+                if (score >= 90)
+                {
+                    grade = 'A';
+                }
+
+                if (score >= 80 && score < 90)
+                {
+                    grade = 'B';
+                }
+
+                if (score >= 70 && score < 80)
+                {
+                    grade = 'C';
+                }
+
+                if (score >= 60 && score < 70)
+                {
+                    grade = 'D';
+                }
+
+                //if (score < 60 )
+                //{
+                //    grade = 'F';
+                //}
+                Console.WriteLine("***Using if-only****");
+                Console.WriteLine("Your grade is " + grade.ToString());
+
+                if (score >= 90)
+                {
+                    grade = 'A';
+                }
+                else if (score >= 80)
+                {
+                    grade = 'B';
+                }
+                else if (score >= 70)
+                {
+                    grade = 'C';
+                }
+                else if (score >= 60)
+                {
+                    grade = 'D';
+                }
+                else
+                {
+                    grade = 'F';
+                }
+                Console.WriteLine("\r\n***Using if-elseif-else****");
+                Console.WriteLine("Your grade is " + grade.ToString());
+            }
+            else
             {
-                grade = 'A';
+                MessageBox.Show("Your input is wrong");
             }
 
-            if(score >= 80 && score < 90)
-            {
-                grade = 'B';
-            }
-
-            if (score >= 70 && score < 80)
-            {
-                grade = 'C';
-            }
-
-            if (score >= 60 && score < 70)
-            {
-                grade = 'D';
-            }
-
-            //if (score < 60 )
-            //{
-            //    grade = 'F';
-            //}
-            Console.WriteLine("***Using if-only****");
-            Console.WriteLine("Your grade is " + grade.ToString());
-
-            if(score >= 90)
-            {
-                grade = 'A';
-            }else if(score >= 80)
-            {
-                grade = 'B';
-            }
-            else if (score >= 70)
-            {
-                grade = 'C';
-            }
-            else if (score >= 60)
-            {
-                grade = 'D';
-            }else
-            {
-                grade = 'F';
-            }
-            Console.WriteLine("\r\n***Using if-elseif-else****");
-            Console.WriteLine("Your grade is " + grade.ToString());
         }
     }
 }
